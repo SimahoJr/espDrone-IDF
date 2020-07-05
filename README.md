@@ -1,5 +1,8 @@
-# esp8266Drone-RTOS-SDK
-The ESP8266 Drone based on ESP8266 RTOS SDK
+# Why esp8266Drone-RTOS-SDK?
+1. Run multiple tasks independently
+2. Faster
+3. Learn more about SoCs technology
+
 
 # Environment Setup
 1. Follow the https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/ programming guide.
