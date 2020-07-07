@@ -29,6 +29,7 @@
  /Users/SimahoJr/esp/espDrone/build/newlib/libnewlib.a
  /Users/SimahoJr/esp/espDrone/build/nvs_flash/libnvs_flash.a
  /Users/SimahoJr/esp/espDrone/build/openssl/libopenssl.a
+ /Users/SimahoJr/esp/espDrone/build/pid/libpid.a
  /Users/SimahoJr/esp/espDrone/build/protobuf-c/libprotobuf-c.a
  /Users/SimahoJr/esp/espDrone/build/protocomm/libprotocomm.a
  /Users/SimahoJr/esp/espDrone/build/pthread/libpthread.a
