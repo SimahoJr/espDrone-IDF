@@ -1,4 +1,4 @@
-pwm_example_main.o: /Users/SimahoJr/esp/espDrone/main/pwm_example_main.c \
+main.o: /Users/SimahoJr/esp/espDrone/main/main.cpp \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdio.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/_ansi.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/newlib.h \
@@ -22,9 +22,13 @@ pwm_example_main.o: /Users/SimahoJr/esp/espDrone/main/pwm_example_main.c \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdlib.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/machine/stdlib.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/alloca.h \
- /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/spi_flash/include/esp_spi_flash.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/spi_flash/include/spi_flash.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
  /Users/SimahoJr/esp/espDrone/build/include/sdkconfig.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
@@ -51,8 +55,6 @@ pwm_example_main.o: /Users/SimahoJr/esp/espDrone/main/pwm_example_main.c \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/private/mpu_wrappers.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
- /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
- /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_config.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/task.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/private/list.h \
@@ -64,7 +66,17 @@ pwm_example_main.o: /Users/SimahoJr/esp/espDrone/main/pwm_example_main.c \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/gpio_register.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/pin_mux_register.h \
- /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/pwm.h
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/pwm.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/i2c.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/gpio.h \
+ /Users/SimahoJr/esp/espDrone/components/MPU6050/MPU6050_6Axis_MotionApps20.h \
+ /Users/SimahoJr/esp/espDrone/components/I2Cdev/I2Cdev.h \
+ /Users/SimahoJr/esp/espDrone/components/MPU6050/MPU6050.h \
+ /Users/SimahoJr/esp/espDrone/components/MPU6050/helper_3dmath.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/math.h \
+ /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/inttypes.h \
+ /Users/SimahoJr/esp/espDrone/components/MPU6050/MPU6050.h
 
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdio.h:
 
@@ -112,11 +124,19 @@ pwm_example_main.o: /Users/SimahoJr/esp/espDrone/main/pwm_example_main.c \
 
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/alloca.h:
 
-/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h:
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/spi_flash/include/esp_spi_flash.h:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/spi_flash/include/spi_flash.h:
 
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/stdint.h:
 
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/sys/_intsup.h:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h:
 
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
@@ -170,10 +190,6 @@ pwm_example_main.o: /Users/SimahoJr/esp/espDrone/main/pwm_example_main.c \
 
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h:
 
-/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h:
-
-/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/assert.h:
-
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_config.h:
 
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/task.h:
@@ -197,4 +213,24 @@ pwm_example_main.o: /Users/SimahoJr/esp/espDrone/main/pwm_example_main.c \
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/pin_mux_register.h:
 
 /Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/pwm.h:
-/Users/SimahoJr/esp/espDrone/main/./pwm_example_main.c:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/i2c.h:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/esp8266/include/driver/gpio.h:
+
+/Users/SimahoJr/esp/espDrone/components/MPU6050/MPU6050_6Axis_MotionApps20.h:
+
+/Users/SimahoJr/esp/espDrone/components/I2Cdev/I2Cdev.h:
+
+/Users/SimahoJr/esp/espDrone/components/MPU6050/MPU6050.h:
+
+/Users/SimahoJr/esp/espDrone/components/MPU6050/helper_3dmath.h:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/math.h:
+
+/Users/SimahoJr/esp/ESP8266_RTOS_SDK/components/newlib/newlib/include/inttypes.h:
+
+/Users/SimahoJr/esp/espDrone/components/MPU6050/MPU6050.h:
+/Users/SimahoJr/esp/espDrone/main/./main.cpp:
