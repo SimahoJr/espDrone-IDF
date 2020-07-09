@@ -11,3 +11,5 @@
 	I look for another solution
 		MQTT needs a broker (Not Good)
 		We use sockets ??
+
+4. Modify the droneController app to work with both Modbus and Sockets, the user to choose??? 
