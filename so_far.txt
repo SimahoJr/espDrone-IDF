@@ -13,3 +13,11 @@
 		We use sockets ??
 
 4. Modify the droneController app to work with both Modbus and Sockets, the user to choose??? 
+
+5. I2c doesn't work well with breadboards using IDF, took me two days to surrender/realize. It worked well with Arduino but with IDF, the connections need to be very well (no Debouncing issues, I guess). But, I will not look any further on the problem. The error that I got was 
+"Block write verification error, bank 
+bank 7, address 126!
+Expected:0x30
+Received:0x14"
+
+-I solved by connecting MPU and ESP with a female-female wire connector. Each end at the respective terminal, no Breadboard used, I still get errors when I shake the connections as they are kinda loose :). Off to the next one.
