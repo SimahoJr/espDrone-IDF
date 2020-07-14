@@ -21,3 +21,4 @@ Expected:0x30
 Received:0x14"
 
 -I solved by connecting MPU and ESP with a female-female wire connector. Each end at the respective terminal, no Breadboard used, I still get errors when I shake the connections as they are kinda loose :). Off to the next one.
+-NEED Better tests "SOLDER MPU AND ESP"
