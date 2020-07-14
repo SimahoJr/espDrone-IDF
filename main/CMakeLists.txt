@@ -1,7 +1,4 @@
-set(COMPONENT_SRCS "main.c",)
-set(COMPONENT_SRCS "tcp_server.c")
-set(COMPONENT_ADD_INCLUDEDIRS ".")
-
-register_component()
+idf_component_register(SRCS "drone.cpp"
+                    INCLUDE_DIRS ".")
 
 register_component()
