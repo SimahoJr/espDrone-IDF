@@ -27,15 +27,16 @@ uint16_t fifoCount;     // count of all bytes currently in FIFO
 uint8_t fifoBuffer[64]; // FIFO storage buffer
 uint8_t mpuIntStatus;   // holds actual interrupt status byte from MPU
 
+static const char *TAG = "Drone's Gyro";
+
 void task_initI2C(void *ignore) {
-	int i2c_mpu_port = I2C_MPU_NUM;
     i2c_config_t conf;
     conf.mode = I2C_MODE_MASTER;
     conf.sda_io_num = (gpio_num_t)I2C_MPU_SDA_IO;
     conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
     conf.scl_io_num = (gpio_num_t)I2C_MPU_SCL_IO;
     conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.clk_stretch_tick = 300; // 300 ticks, Clock stretch is about 210us, you can make changes according to the actual situation.
+    conf.clk_stretch_tick = 3000; // 300 ticks, Clock stretch is about 210us, you can make changes according to the actual situation.
     ESP_ERROR_CHECK(i2c_driver_install(I2C_MPU_NUM, conf.mode));
     ESP_ERROR_CHECK(i2c_param_config(I2C_MPU_NUM, &conf));
     vTaskDelete(NULL);
@@ -69,7 +70,7 @@ void task_display(void*){
 	        while (fifoCount < packetSize) fifoCount = mpu.getFIFOCount();
 
 	        // read a packet from FIFO
-
+            ESP_LOGI(TAG, "Running");
 	        mpu.getFIFOBytes(fifoBuffer, packetSize);
 	 		mpu.dmpGetQuaternion(&q, fifoBuffer);
 			mpu.dmpGetGravity(&gravity, &q);

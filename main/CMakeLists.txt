@@ -1,4 +1,4 @@
-idf_component_register(SRCS "drone.cpp"
+idf_component_register(SRCS "espDrone.cpp"
                     INCLUDE_DIRS ".")
 
 register_component()
