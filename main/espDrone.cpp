@@ -15,25 +15,48 @@
 #include "esp_system.h"
 #include "esp_err.h"
 
+#include "pid.h"
 
 
 extern "C" {
     void app_main(void);
 }
 
-extern void task_initI2C(void*);
-extern void task_display(void*);
-extern void tcp_server_task(void *pvParameters);
+
+//  MPU6050 Variables
+extern void MPU_initI2C(void*);
+extern void MPU_run(void*);
+extern "C" float ypr[3];
+
+
+//  WiFi Variables
 extern "C" void wifi_init_softap();
+
+
+//  PWM Variables
 extern "C" void pwm_task(void*);
+
+
+//  Variables Tests
+void print_stuff(void*)
+{
+    while(1){
+    vTaskDelay(100/portTICK_PERIOD_MS);
+    printf("YAW: %3.1f, ", ypr[0]);
+    printf("PITCH: %3.1f, ", ypr[2]);
+    printf("ROLL: %3.1f \n", ypr[2]);
+    }
+     vTaskDelete(NULL);
+}
 
 
 void app_main()
 {
     wifi_init_softap();
     xTaskCreate(pwm_task,"PWM Signals", 2048,NULL, 10, NULL);
-    xTaskCreate(&task_initI2C, "mpu_task", 2048, NULL, 5, NULL);
+    xTaskCreate(&MPU_initI2C, "MPU_task", 2048, NULL, 5, NULL);
     vTaskDelay(500/portTICK_PERIOD_MS);
-    xTaskCreate(&task_display, "disp_task", 8192, NULL, 5, NULL);
-    
+    xTaskCreate(&MPU_run, "MPU Run", 8192, NULL, 5, NULL);
+    xTaskCreate(&print_stuff, "disp_tk", 1000, NULL, 5, NULL);
+
 }

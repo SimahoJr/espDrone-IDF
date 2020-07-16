@@ -29,7 +29,7 @@ uint8_t mpuIntStatus;   // holds actual interrupt status byte from MPU
 
 static const char *TAG = "Drone's Gyro";
 
-void task_initI2C(void *ignore) {
+void MPU_initI2C(void *ignore) {
     i2c_config_t conf;
     conf.mode = I2C_MODE_MASTER;
     conf.sda_io_num = (gpio_num_t)I2C_MPU_SDA_IO;
@@ -42,7 +42,7 @@ void task_initI2C(void *ignore) {
     vTaskDelete(NULL);
 }
 
-void task_display(void*){
+void MPU_run(void*){
 	MPU6050 mpu = MPU6050();
 	mpu.initialize();
 	mpu.dmpInitialize();
@@ -75,9 +75,13 @@ void task_display(void*){
 	 		mpu.dmpGetQuaternion(&q, fifoBuffer);
 			mpu.dmpGetGravity(&gravity, &q);
 			mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-			printf("YAW: %3.1f, ", ypr[0] * 180/M_PI);
-			printf("PITCH: %3.1f, ", ypr[1] * 180/M_PI);
-			printf("ROLL: %3.1f \n", ypr[2] * 180/M_PI);
+            ypr[0] = ypr[0] * 180/M_PI;
+            ypr[1] = ypr[1] * 180/M_PI;
+            ypr[2] = ypr[2] * 180/M_PI;
+            
+//			printf("YAW: %3.1f, ", ypr[0] * 180/M_PI);
+//			printf("PITCH: %3.1f, ", ypr[1] * 180/M_PI);
+//			printf("ROLL: %3.1f \n", ypr[2] * 180/M_PI);
 	    }
 
 	    //Best result is to match with DMP refresh rate
