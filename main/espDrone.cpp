@@ -15,8 +15,6 @@
 #include "esp_system.h"
 #include "esp_err.h"
 
-#include "pid.h"
-
 
 extern "C" {
     void app_main(void);
@@ -37,13 +35,20 @@ extern "C" void wifi_init_softap();
 extern "C" void pwm_task(void*);
 
 
+// PID Variables
+extern "C" void PID_Init();
+
+// TCP Server here
+extern "C" void tcp_server_task();
+
+
 //  Variables Tests
 void print_stuff(void*)
 {
     while(1){
     vTaskDelay(100/portTICK_PERIOD_MS);
     printf("YAW: %3.1f, ", ypr[0]);
-    printf("PITCH: %3.1f, ", ypr[2]);
+    printf("PITCH: %3.1f, ", ypr[1]);
     printf("ROLL: %3.1f \n", ypr[2]);
     }
      vTaskDelete(NULL);
