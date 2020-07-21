@@ -1,0 +1,6 @@
+
+### CMake template
+.idea
+cmake-build-debug
+.DS_Store
+.vscode

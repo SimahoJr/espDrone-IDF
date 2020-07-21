@@ -21,7 +21,7 @@
    the config you want - ie #define EXAMPLE_WIFI_SSID "mywifissid"
 */
 #define EXAMPLE_ESP_WIFI_SSID      "Crazy Engineer's Drone"
-#define EXAMPLE_ESP_WIFI_PASS      "Alita: Battle Angle"
+#define EXAMPLE_ESP_WIFI_PASS      "Alita:Battle Angel"
 #define EXAMPLE_MAX_STA_CONN       10
 
 static const char *TAG = "Drone WiFi AP";
@@ -69,4 +69,7 @@ void wifi_init_softap()
 
     ESP_LOGI(TAG, "wifi_init_softap finished. SSID:%s password:%s",
              EXAMPLE_ESP_WIFI_SSID, EXAMPLE_ESP_WIFI_PASS);
+
 }
+
+ 
