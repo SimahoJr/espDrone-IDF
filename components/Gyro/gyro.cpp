@@ -29,7 +29,7 @@ uint8_t mpuIntStatus;   // holds actual interrupt status byte from MPU
 
 static const char *TAG = "Drone's Gyro";
 
-void MPU_initI2C(void *ignore) {
+void MPU_initI2C() {
     i2c_config_t conf;
     conf.mode = I2C_MODE_MASTER;
     conf.sda_io_num = (gpio_num_t)I2C_MPU_SDA_IO;
@@ -39,10 +39,15 @@ void MPU_initI2C(void *ignore) {
     conf.clk_stretch_tick = 3000; // 300 ticks, Clock stretch is about 210us, you can make changes according to the actual situation.
     ESP_ERROR_CHECK(i2c_driver_install(I2C_MPU_NUM, conf.mode));
     ESP_ERROR_CHECK(i2c_param_config(I2C_MPU_NUM, &conf));
-    vTaskDelete(NULL);
+//    vTaskDelete(NULL);
 }
 
 void MPU_run(void*){
+    MPU_initI2C();
+    // Delay to enable drifting time
+    //TODO: Set the right delay
+    vTaskDelay(500/portTICK_PERIOD_MS);
+    
 	MPU6050 mpu = MPU6050();
 	mpu.initialize();
 	mpu.dmpInitialize();
@@ -87,7 +92,7 @@ void MPU_run(void*){
 	    //Best result is to match with DMP refresh rate
 	    // Its last value in components/MPU6050/MPU6050_6Axis_MotionApps20.h file line 310
 	    // Now its 0x13, which means DMP is refreshed with 10Hz rate
-		vTaskDelay(100/portTICK_PERIOD_MS);
+		vTaskDelay(10/portTICK_PERIOD_MS);
 	}
 
 	vTaskDelete(NULL);

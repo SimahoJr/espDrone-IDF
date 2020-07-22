@@ -31,8 +31,10 @@
 // Do nor use period below 20us
 #define PWM_PERIOD    (1000)
 
-static const char *TAG = "Drone's PWM";
+extern float ypr[3];  //Called from a CPP function
 
+
+static const char *TAG = "Drone's PWM";
 
 const uint32_t pin_num[4] = {
     PWM_0_OUT_IO_NUM,
@@ -69,7 +71,12 @@ void pwm_task(){
                 // TODO: Read Doc here
                 ESP_LOGI(TAG, "Running");
                 vTaskDelay(100 / portTICK_RATE_MS);
-            }
-
+                ESP_LOGI(TAG, "YAW: %3.1f, PITCH: %3.1f,ROLL: %3.1f", ypr[0], ypr[1], ypr[2]);
+//                printf("YAW: %3.1f, ", ypr[0]);
+//                printf("PITCH: %3.1f, ", ypr[1]);
+//                printf("ROLL: %3.1f \n", ypr[2]);
+                }
+                 vTaskDelete(NULL);
+    
 }
 
